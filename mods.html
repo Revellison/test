@@ -1,0 +1,252 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Cmcraft</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<link href="css/agencydark.css" rel="stylesheet">
+<link href="css/mods.css" rel="stylesheet">
+<script src="jquery-1.12.4.min.js"></script>
+<script src="jquery.ui.effect.min.js"></script>
+<script src="lottie-player.js"></script>
+<script>
+$(document).ready(function()
+{
+   $("a[href*='#header']").click(function(event)
+   {
+      event.preventDefault();
+      $('html, body').stop().animate({ scrollTop: $('#wb_header').offset().top }, 600, 'easeInOutCirc');
+   });
+   $("a[href*='#services']").click(function(event)
+   {
+      event.preventDefault();
+      $('html, body').stop().animate({ scrollTop: $('#wb_services').offset().top-88 }, 600, 'easeOutCirc');
+   });
+   $('#MegaMenu1 .submenu ul li h2 a').addClass('ui-widget-header');
+   $('#MegaMenu1 .submenu ul li a').hover(function()
+   {
+      $(this).addClass('ui-state-hover');
+   }, function()
+   {
+      $(this).removeClass('ui-state-hover');
+   });
+   $('.ui-state-default').hover(function()
+   {
+      $(this).addClass('ui-state-hover');
+   }, function()
+   {
+      $(this).removeClass('ui-state-hover');
+   });
+   $('#MegaMenu1 li').hover(function()
+   {
+      var top = $(this).find('.button').outerHeight();
+      $(this).find('.submenu').css( {'top': top });
+      $(this).find('.submenu').stop().fadeTo('fast', 1).show();
+      var maxWidth = 0;
+      $(this).find('ul').each(function()
+      {
+         $(this).find('li').each(function()
+         {
+            $(this).css('width', 'auto');
+            if ($(this).width() > maxWidth)
+               maxWidth = $(this).width();
+         });
+      });
+      $(this).find('ul').each(function()
+      {
+         $(this).find('li').width(maxWidth);
+         $(this).css({'width' : maxWidth+4});
+      });
+      if ($(this).find('.row').length > 0 )
+      {
+         var maxRowWidth = 0;
+         $(this).find('.row').each(function()
+         {
+            var width = 0;
+            $(this).find('ul').each(function()
+            {
+               width += $(this).width();
+            });
+            if (width > maxRowWidth)
+            {
+               maxRowWidth = width;
+            }
+         });
+         $(this).find('.submenu').css({'width' : maxRowWidth});
+         $(this).find('.row:last').css({'margin': '0'});
+      }
+      else
+      {
+         var width = 0;
+         $(this).find('ul').each(function()
+         {
+            width += $(this).width();
+         });
+         $(this).find('.submenu').css({'width' : width});
+      }
+      $(this).find('.submenu').slideDown();
+   }, function()
+   {
+      $(this).find('.submenu').stop().fadeTo('fast', 0, function()
+      {
+         $(this).hide();
+      });
+   })
+   $('#MegaMenu1 li .submenu').hide();
+   $('#MegaMenu1-nav').click(function()
+   {
+      $('body').removeClass('overflow-no-scroll');
+      $('#wb_MegaMenu1').removeClass('open');
+   });
+   $('#MegaMenu1-hamburger').click(function()
+   {
+      $('body').addClass('overflow-no-scroll');
+      $('#wb_MegaMenu1').addClass('open');
+   });
+   $("a[href*='#LayoutGrid1']").click(function(event)
+   {
+      event.preventDefault();
+      $('html, body').stop().animate({ scrollTop: $('#wb_LayoutGrid1').offset().top-88 }, 600, 'easeOutCirc');
+   });
+   if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {$('#preloader').remove();}
+});
+$(window).on('load', function()
+{
+   $('#preloader').remove();
+});
+</script>
+</head>
+<body>
+<div id="wb_header">
+<div id="header">
+<div class="col-1">
+<div id="wb_MegaMenu1" style="display:inline-block;width:100%;text-align:center;z-index:0;">
+<div id="MegaMenu1-hamburger">
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+</div>
+<div id="MegaMenu1-nav">
+<div id="MegaMenu1-close"><a role="button" aria-hidden="true" href="#">&times;</a></div>
+<ul role="menubar" class="ui-widget" id="MegaMenu1">
+<li role="menuitem">
+<a href="./index.html" class="nav-link button ui-state-default">Главная</a>
+</li>
+<li role="menuitem">
+<a href="#" class="button ui-state-default"><i class="fa fa-caret-down arrow"></i>Правила</a>
+<div class="submenu ui-widget-content">
+<div class="row">
+<ul>
+<li><h2>Правила сервера Minecraft</h2></li>
+<li role="menuitem"><a href="https://docs.google.com/document/d/1cPTnQt4SCrCw4Yj0E2cQqCC11Hu4cXyn93YpLomKSy4"><i class="fa fa-paper-plane icon"></i>Основные правила</a></li>
+<li role="menuitem"><a href="https://docs.google.com/document/d/13eBJW-IxZc8gLtfGyXkdXPoQJlK4APMWgIXREz_URis"><i class="fa fa-file icon"></i>Запрещенное и разрешенное ПО</a></li>
+<li role="menuitem"><a href="https://docs.google.com/document/d/1tRMOqO6EIemyKRpA7hJH2Pzfqqlmd2poUFyHgm9PycY"><i class="fa fa-user-o icon"></i>Устав администрации</a></li>
+</ul>
+<ul>
+<li><h2>Правила DISCORD-сообщества</h2></li>
+<li role="menuitem"><a href="https://docs.google.com/document/d/13qG3hazrGHIrgcumPihSC9qqGGLzu69AcDncc-VFkhw"><i class="fa fa-paper-plane icon"></i>Правила</a></li>
+</ul>
+</div>
+</div>
+</li>
+<li role="menuitem">
+<a href="https://vk.com/uslugi-201145305?screen=group" class="nav-link button ui-state-default">Товары</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="wb_services">
+<div id="services">
+<div class="row">
+<div class="col-1">
+<div class="col-1-padding">
+</div>
+</div>
+<div class="col-2">
+<div class="col-2-padding">
+<div id="wb_Lottie1" style="display:inline-block;width:100%;z-index:1;">
+<lottie-player id="Lottie1" loop speed="1" mode="normal" src="Animation - 1719914977846.json"></lottie-player>
+</div>
+</div>
+</div>
+<div class="col-3">
+<div class="col-3-padding">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="wb_LayoutGrid1">
+<div id="LayoutGrid1">
+<div class="row">
+<div class="col-1">
+<div class="col-1-padding">
+</div>
+</div>
+<div class="col-2">
+<div class="col-2-padding">
+<div id="wb_Image2" style="display:inline-block;width:104px;height:104px;z-index:2;">
+<a href="https://vk.com/im?sel=-201145305"><img src="images/Без названия.png" id="Image2" alt="" width="104" height="104"></a>
+</div>
+<div id="wb_JavaScript1" style="display:inline-block;width:100%;z-index:3;">
+<div style="color:#FFA500;font-size:16px;font-family:Arial;font-weight:normal;font-style:normal;text-align:center;text-decoration:none" id="typewriter-deluxe">
+<span id="typewriter-text" style="border-right: 0.08em solid #FFA500;"></span>
+</div>
+<script>
+var data = "Подать заявку в вайтлист";
+var lines = data.split('^');
+var reverse = false;
+var index = 0;
+var text = '';
+var typeWriterElement = document.getElementById("typewriter-text");
+function typeWriterDeluxe() 
+{
+   var i = index % lines.length;
+   var line = lines[i];
+   if (reverse) 
+   {
+      text = line.substring(0, text.length - 1);
+   } 
+   else 
+   {
+      text = line.substring(0, text.length + 1);
+   }
+   typeWriterElement.innerHTML = text;
+   var timeout = 250 - Math.random() * (250/2);
+   if (reverse) 
+   { 
+      timeout /= 2; 
+   }
+   if (!reverse && text === line) 
+   {
+      timeout = 5000;
+      reverse = true;
+   } 
+   else 
+   if (reverse && text === '') 
+   {
+      reverse = false;
+      index++;
+      timeout = 500;
+   }
+   setTimeout(typeWriterDeluxe, timeout);
+}
+typeWriterDeluxe();
+</script>
+</div>
+</div>
+</div>
+<div class="col-3">
+<div class="col-3-padding">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="preloader"></div>
+</body>
+</html>
